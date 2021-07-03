@@ -134,6 +134,28 @@ h3.profile{
 	height: 200px;
 	object-fit: fill !important;
 }
+.img-group{
+	position: relative;
+}
+.card-img:hover .caption{
+	opacity: 1;
+	cursor: pointer;
+}
+a.caption{
+	background: rgba(0, 0, 0, 0.3);
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	transition: opacity 0.5s;
+	padding: 0px !important;
+	margin: 0px !important;
+	border-radius: 0px;
+}
+.card, .card-body{
+	border: none !important;
+}
 .event, .services{
 	background-color: #030106;
 	height: auto;
