@@ -57,7 +57,7 @@ body{
 	color: #ffaa00 !important;
 }
 .caption span{
-	font-style: italic;
+	/*font-style: italic;*/
 }
 .caption h6{
 	font-size: 13px;
@@ -288,6 +288,9 @@ a.caption{
 		left: 0;
 		z-index: 10;
 		background-color: rgba(0,0,0,1);
+	}
+	.caption h1{
+		font-size: 3.4em !important;
 	}
 	.playlist-wide{
 		width: 100vw;
