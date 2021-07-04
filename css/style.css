@@ -53,8 +53,11 @@ body{
 	font-size: 4em !important;
 	line-height: 80px;
 }
-span.dot{
+.caption span, span.dot{
 	color: #ffaa00 !important;
+}
+.caption span{
+	font-style: italic;
 }
 .caption h6{
 	font-size: 13px;
