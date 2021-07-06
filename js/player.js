@@ -1,11 +1,5 @@
-var songs = ["music1.mp3", "music2.mp3"];
-
+var songs = ["dj-everlasting-mix-tape-chill-teaser-1.mp3", "dj-everlasting-the-unveiling.mp3", "dj-everlasting-mix-tape-chill-teaser-2.mp3", "new-mixtape.mp3"];
 var songTitle = document.getElementById('songTitle');
-// var songSlider = document.getElementById('songSlider');
-var currentTime = document.getElementById('currentTime');
-var duration = document.getElementById('duration');
-var volumeSlider = document.getElementById('volumeSlider');
-// var nextSongTitle = document.getElementById('nextSongTitle');
 
 var song = new Audio();
 var currentSong = 0;
@@ -14,38 +8,11 @@ window.onload = loadSong;
 
 function loadSong () {
 	song.src = "music/" + songs[currentSong];
-	songTitle.textContent = (currentSong + 1) + ". " + songs[currentSong];
-	// nextSongTitle.innerHTML = songs[currentSong + 1 % songs.length];
+	songTitle.textContent = ((currentSong + 1) + ". " + songs[currentSong]).substring(0, 15) + '...';
 	song.playbackRate = 1;
-	// song.volume = volumeSlider.value;
-	song.play();
-	// setTimeout(showDuration, 1000);
+	song.volume = 0.8;
+	// song.play();
 }
-
-// setInterval(updateSongSlider, 1000);
-
-// function updateSongSlider () {
-// 	var c = Math.round(song.currentTime);
-// 	songSlider.value = c;
-// 	currentTime.textContent = convertTime(c);
-// 	if(song.ended){
-// 		next();
-// 	}
-// }
-
-function convertTime (secs) {
-	var min = Math.floor(secs/60);
-	var sec = secs % 60;
-	min = (min < 10) ? "0" + min : min;
-	sec = (sec < 10) ? "0" + sec : sec;
-	return (min + ":" + sec);
-}
-
-// function showDuration () {
-// 	var d = Math.floor(song.duration);
-// 	songSlider.setAttribute("max", d);
-// 	duration.textContent = convertTime(d);
-// }
 
 function playOrPauseSong (img) {
 	song.playbackRate = 1;
@@ -54,28 +21,22 @@ function playOrPauseSong (img) {
 		img.src = "images/pause.png";
 	}else{
 		song.pause();
-		img.src = "images/Dj-Everlasting-Player-icon_28.png";
+		img.src = "images/play.png";
 	}
 }
 
 function next(){
-	currentSong = currentSong + 1 % songs.length;
+	currentSong++;
+	currentSong = currentSong % songs.length;
 	loadSong();
+	song.play();
 }
 
 function previous () {
 	currentSong--;
 	currentSong = (currentSong < 0) ? songs.length - 1 : currentSong;
 	loadSong();
-}
-
-function seekSong () {
-	song.currentTime = songSlider.value;
-	currentTime.textContent = convertTime(song.currentTime);
-}
-
-function adjustVolume () {
-	song.volume = volumeSlider.value;
+	song.play();
 }
 
 function increasePlaybackRate () {

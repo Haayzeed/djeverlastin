@@ -56,9 +56,6 @@ body{
 .caption span, span.dot{
 	color: #ffaa00 !important;
 }
-.caption span{
-	/*font-style: italic;*/
-}
 .caption h6{
 	font-size: 13px;
 	font-family: 'Open Sans', sans-serif;
@@ -117,7 +114,7 @@ body{
 }
 h3.profile{
 	position: absolute;
-	right: 0px;
+	right: -105px;
 	top: 170px;
 	transform: rotate(-90deg);
 	font-family: Montseratt;
@@ -128,6 +125,30 @@ h3.profile{
 	background-size: cover;
 	background-position: center;
 }
+.image-holder img{
+	height: 100%;
+	object-fit: cover;
+	min-height: 10em; 
+	width: 100%;
+}
+.image-holder a{
+	top: 0;
+	left: 0;
+	opacity: 0;
+	height: 100%;
+	width: 100%;
+	background-color: rgba(0,0,0,0.5);
+	text-decoration: none;
+}
+.image-holder a span{
+	background: #ffaa00;
+	padding: 8px 15px;
+	border-radius: 50px;
+}
+.image-holder:hover a{
+	opacity: 1;
+	transition: opacity 300ms;
+}
 .mixtape h1, .event h1, .services h1, .gallery h1, .social-media h1{
 	font-family: TTNorms;
 	font-size: 3.5em;
@@ -135,7 +156,7 @@ h3.profile{
 .gallery img{
 	width: 19.7%;
 	height: 200px;
-	object-fit: fill !important;
+	object-fit: cover !important;
 }
 .img-group{
 	position: relative;
@@ -276,6 +297,54 @@ a.caption{
 }
 
 /*===================Screen Responsiveness=================*/
+@media (max-width: 1024px){
+	.playlist{
+		flex: 0 0 40%;
+		max-width: 40%;
+	}
+	.playlist-holder{
+		flex: 0 0 60%;
+		max-width: 60%;
+	}
+	.playlist-wide{
+		flex: 0 0 100%;
+		max-width: 100%;
+	}
+}
+@media (max-width: 991px){
+	.menu{
+		position: fixed;
+		width: 100vw;
+		top: 0;
+		left: 0;
+		z-index: 10;
+		background-color: rgba(0,0,0,1);
+	}
+	.social-media .contact-icon{
+		font-size: 18px;
+	}
+}
+@media (max-width: 768px){
+	.playlist{
+		flex: 0 0 0%;
+		max-width: 0%;
+	}
+	.playlist-holder{
+		flex: 0 0 100%;
+		max-width: 100%;
+	}
+	h3.profile{
+		display: none !important;
+	}
+	.social-media .contact-icon{
+		font-size: 22px !important;
+	}
+}
+@media(min-width: 640px){
+	.social-media .contact-icon{
+		font-size: 32px;
+	}
+}
 @media (max-width: 576px){
 	body{
 		overflow-x: hidden !important;
@@ -294,7 +363,6 @@ a.caption{
 	}
 	.playlist-wide{
 		width: 100vw;
-
 	}
 	.playlist-wide span{
 		font-size: 12px;
@@ -315,7 +383,7 @@ a.caption{
 	}
 	.gallery img{
 		width: 100%;
-		height: 200px;
+		height: 300px;
 		object-fit: fill !important;
 	}
 	.footer{
@@ -360,7 +428,6 @@ a.caption{
 .left-modal{
 	background-image: url(../images/Dj-Everlasting-Profile-Layed_03.jpg)
 }
-
 .group-holder{
 	border-bottom: 2px solid #adadad;
 	position: relative;
@@ -376,7 +443,6 @@ a.caption{
 	padding: 0 5px;
 	height: 30px;
 }
-
 .group-holder span::before{
 	content: attr(data-placeholder);
 	position: absolute;
@@ -388,7 +454,6 @@ a.caption{
 	transition: .5s;
 	font-size: 14px;
 }
-
 .group-holder span::after{
 	content: '';
 	position: absolute;
@@ -399,7 +464,6 @@ a.caption{
 	background: #ffaa00;
 	transition: .5s;
 }
-
 .focus + span::before{
 	top: -5px;
 	font-size: 12px;
@@ -408,7 +472,6 @@ a.caption{
 .focus + span::after{
 	width: 100%;
 	font-size: 14px;
-
 }
 @media(max-width: 576px){
 	.my-modal{
